@@ -44,16 +44,3 @@ console.log(stack.push(5));
 console.log(stack.pop());//5
 console.log(stack.items);//undefined
 
-
-
-
-/***
- * Desired output: 
- * 
-undefined
-undefined
-5
-[ 10 ]
-[ 10, 100, 1000 ]
- * 
- */
