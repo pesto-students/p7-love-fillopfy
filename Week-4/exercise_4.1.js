@@ -9,13 +9,17 @@
  */
 
 
-const randomNumberPromise = new Promise((resolve, reject)=>{
-    const ranodmNumber = Math.random();
-    if(isDivisibleBy5(ranodmNumber)){
-        reject();
-    }
-    resolve();
-});
+const randomeNumberPromiseCaller = (x) => {
+    return new Promise((resolve, reject)=>{
+        let ranodmNumber = Math.floor(Math.random()*1000);
+        if(isDivisibleBy5(ranodmNumber)){
+            reject(`${ranodmNumber} is divisible by 5, so promise rejected`);
+        }
+        resolve(`${ranodmNumber} is not divisible by 5, so promise resolved`);
+    });
+}
+
+
 
 
 function isDivisibleBy5(x){
@@ -26,5 +30,11 @@ function isDivisibleBy5(x){
     return false;
 }
 
-console.log(randomNumberPromise())
+for (let i=0;i<10;i++){
+    randomeNumberPromiseCaller(i)
+    .then(response => console.log(response))
+    .catch(error=>console.log(error));
+}
+
+
 
